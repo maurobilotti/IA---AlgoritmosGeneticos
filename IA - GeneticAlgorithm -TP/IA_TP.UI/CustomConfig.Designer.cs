@@ -1,6 +1,6 @@
-﻿namespace IA___GeneticAlgorithm__TP
+﻿namespace IA_TP.UI
 {
-    partial class Main
+    partial class CustomConfig
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Main
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 534);
-            this.Name = "Main";
-            this.Text = "UTN IA - TP - Genetic Algorithm";
-            this.ResumeLayout(false);
-
+            this.Text = "CustomConfig";
         }
 
         #endregion
     }
 }
-

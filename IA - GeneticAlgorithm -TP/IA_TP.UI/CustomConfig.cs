@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IA___GeneticAlgorithm__TP
+namespace IA_TP.UI
 {
-    public partial class Main : Form
+    public partial class CustomConfig : Form
     {
-        public Main()
+        public CustomConfig()
         {
             InitializeComponent();
         }

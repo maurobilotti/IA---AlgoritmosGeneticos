@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IA___GeneticAlgorithm__TP.Properties
+namespace IA_TP.UI.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace IA___GeneticAlgorithm__TP.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IA___GeneticAlgorithm__TP.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IA_TP.UI.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

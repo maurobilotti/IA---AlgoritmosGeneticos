@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IA___GeneticAlgorithm__TP.Properties
+namespace IA_TP.UI.Properties
 {
 
 

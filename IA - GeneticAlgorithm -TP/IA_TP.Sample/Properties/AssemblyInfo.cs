@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("IA - GeneticAlgorithm -TP")]
+[assembly: AssemblyTitle("IA_TP.Sample")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Aon")]
-[assembly: AssemblyProduct("IA - GeneticAlgorithm -TP")]
+[assembly: AssemblyProduct("IA_TP.Sample")]
 [assembly: AssemblyCopyright("Copyright © Aon 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e8daaab0-7c50-4e77-8a1a-67b04556c695")]
+[assembly: Guid("eb618b52-551a-470b-a4ea-c604a358e635")]
 
 // Version information for an assembly consists of the following four values:
 //

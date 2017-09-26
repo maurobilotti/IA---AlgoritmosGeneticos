@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IA___GeneticAlgorithm__TP
+namespace IA_TP.UI
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace IA___GeneticAlgorithm__TP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.Run(new Form1());
         }
     }
 }
