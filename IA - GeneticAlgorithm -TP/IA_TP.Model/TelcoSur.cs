@@ -6,5 +6,7 @@ namespace IA_TP.Model
     {
         public IList<City> Cities { get; set; }
         public int FiberChannelKmsAvailable { get; set; }
+        public decimal Income { get; set; }
+        public Catalogue Catalogue { get; set; }
     }
 }

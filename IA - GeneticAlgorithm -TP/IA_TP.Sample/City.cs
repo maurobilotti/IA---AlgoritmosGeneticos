@@ -33,11 +33,6 @@ public class City
         return deg * (System.Math.PI / 180);
     }
 
-    public override string ToString()
-    {
-        return Name;
-    }
-
     public override bool Equals(object obj)
     {
         var item = obj as City;

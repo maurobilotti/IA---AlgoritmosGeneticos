@@ -46,14 +46,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Config.cs" />
+    <Compile Include="CustomConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CustomConfig.Designer.cs">
+      <DependentUpon>CustomConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawingHelper.cs" />
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomConfig.resx">
+      <DependentUpon>CustomConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,6 +76,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -75,6 +90,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IA_TP.Model\IA_TP.Model.csproj">
+      <Project>{A8558F72-6B9E-4803-8478-B1BE15728E37}</Project>
+      <Name>IA_TP.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Terrain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Otter Creek 002.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Terrain1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Terrain2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Otter Creek 0021.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Terrain3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
