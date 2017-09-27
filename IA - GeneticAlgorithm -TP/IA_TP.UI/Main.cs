@@ -30,11 +30,11 @@ namespace IA_TP.UI
                 drawingHelper.DrawCity(city);
             }
 
-            drawingHelper.DrawRoute(telcoSur.Cities[0], telcoSur.Cities[3], "1");
-            drawingHelper.DrawRoute(telcoSur.Cities[3], telcoSur.Cities[1], "2");
-            drawingHelper.DrawRoute(telcoSur.Cities[1], telcoSur.Cities[2], "3");            
-            drawingHelper.DrawRoute(telcoSur.Cities[2], telcoSur.Cities[4], "4");
-            drawingHelper.DrawRoute(telcoSur.Cities[4], telcoSur.Cities[5], "5");
+            //drawingHelper.DrawRoute(telcoSur.Cities[0], telcoSur.Cities[3], "1");
+            //drawingHelper.DrawRoute(telcoSur.Cities[3], telcoSur.Cities[1], "2");
+            //drawingHelper.DrawRoute(telcoSur.Cities[1], telcoSur.Cities[2], "3");            
+            //drawingHelper.DrawRoute(telcoSur.Cities[2], telcoSur.Cities[4], "4");
+            //drawingHelper.DrawRoute(telcoSur.Cities[4], telcoSur.Cities[5], "5");
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
@@ -61,6 +61,16 @@ namespace IA_TP.UI
             else
             {
                 toolTipCity.Hide(pictureBoxConfig);
+            }
+        }
+
+        private void btnCustomConfig_Click(object sender, EventArgs e)
+        {
+            var frm = new CustomConfig(telcoSur);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                this.telcoSur = frm.TelcoSur;
+                CreateUIConfig();
             }
         }
 

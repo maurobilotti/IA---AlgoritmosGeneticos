@@ -2,6 +2,11 @@
 {
     public class City
     {
+        public City()
+        {
+            this.Demand = new UserDemand();
+        }
+
         public string Name { get; set; }
         /// <summary>
         /// X

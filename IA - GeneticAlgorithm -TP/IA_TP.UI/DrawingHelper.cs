@@ -23,7 +23,7 @@ namespace IA_TP.UI
         /// </summary>
         /// <param name="latitude"></param>
         /// <param name="longitud"></param>
-        public void DrawCity(City city)
+        public void DrawCity(Model.City city)
         {
             graph = pictureBox.CreateGraphics();
             graph.DrawEllipse(pen, city.Latitude, city.Longitude, 20, 20);
@@ -34,7 +34,7 @@ namespace IA_TP.UI
             }
         }
 
-        public void DrawRoute(City city1, City city2, string route = "")
+        public void DrawRoute(Model.City city1, Model.City city2, string route = "")
         {
             graph = pictureBox.CreateGraphics();
             graph.DrawLine(pen, city1.Latitude + 10, city1.Longitude + 10, city2.Latitude + 10, city2.Longitude + 10);

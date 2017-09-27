@@ -26,38 +26,38 @@ namespace IA_TP.UI
             };
         }
 
-        private static IList<City> BuildBaseCities()
+        private static IList<Model.City> BuildBaseCities()
         {
             //X <= 1000
             //Y <= 400
-            return new List<City>
+            return new List<Model.City>
             {
-                new City
+                new Model.City
                 {
                     Latitude = 20, Longitude = 50, Name = "Nodo Central",
                     Demand = new UserDemand {Internet = 5000, Phone= 600, TV = 500 }
                 },
-                new City
+                new Model.City
                 {
                     Latitude = 700, Longitude = 200, Name = "Localidad A",
                     Demand = new UserDemand {Internet = 2400, Phone= 2000, TV = 1500 }
                 },
-                new City
+                new Model.City
                 {
                     Latitude = 840, Longitude = 120, Name = "Localidad B",
                     Demand = new UserDemand {Internet = 5000, Phone= 600, TV = 500 },
                 },
-                new City
+                new Model.City
                 {
                     Latitude = 300, Longitude = 80, Name = "Localidad C",
                     Demand = new UserDemand {Internet = 5000, Phone= 600, TV = 500 }
                 },
-                new City
+                new Model.City
                 {
                     Latitude = 900, Longitude = 250, Name = "Localidad D",
                     Demand = new UserDemand {Internet = 5000, Phone= 600, TV = 500 }
                 },
-                new City
+                new Model.City
                 {
                     Latitude = 600, Longitude = 350, Name = "Localidad E",
                     Demand = new UserDemand {Internet = 5000, Phone= 600, TV = 500 }
