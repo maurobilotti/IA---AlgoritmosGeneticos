@@ -26,7 +26,7 @@ namespace IA_TP.UI
             };
         }
 
-        private static IList<Model.City> BuildBaseCities()
+        private static List<Model.City> BuildBaseCities()
         {
             //X <= 1000
             //Y <= 400

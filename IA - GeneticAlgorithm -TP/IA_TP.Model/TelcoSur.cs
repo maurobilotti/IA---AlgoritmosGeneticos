@@ -4,7 +4,7 @@ namespace IA_TP.Model
 {
     public class TelcoSur
     {
-        public IList<City> Cities { get; set; }
+        public List<City> Cities { get; set; }
         public int FiberChannelKmsAvailable { get; set; }
         public decimal Income { get; set; }
         public Catalogue Catalogue { get; set; }

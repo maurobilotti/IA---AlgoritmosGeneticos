@@ -18,11 +18,11 @@ namespace IA_TP.UI
             this.TelcoSur = telcoSur;
             if(TelcoSur != null)
             {
-                LoadPreviousConfig();
+                LoadConfig();
             }
         }
 
-        private void LoadPreviousConfig()
+        private void LoadConfig()
         {
             this.gridCities.DataSource = (from x in TelcoSur.Cities.ToList()
                                           select new
@@ -63,13 +63,44 @@ namespace IA_TP.UI
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 this.TelcoSur.Cities.Add(frm.City);
-                LoadPreviousConfig();
+                LoadConfig();
             }
         }
 
         private void gridCities_SelectionChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnEditCity_Click(object sender, EventArgs e)
+        {
+            if(gridCities.SelectedRows.Count == 1)
+            {
+                var item = (dynamic)gridCities.CurrentRow.DataBoundItem;
+                var city = new City()
+                {
+                    Name = item.Name,
+                    Latitude = item.Latitude,
+                    Longitude = item.Longitude,
+                    Demand =
+                    {
+                        Internet = item.Internet_Demand,
+                        TV = item.TV_Demand,
+                        Phone = item.Phone_Demand
+                    }
+                };
+                var frm = new NewCity(city);                
+                if(frm.ShowDialog() == DialogResult.OK)
+                {
+                    TelcoSur.Cities[gridCities.CurrentRow.Index].Name = frm.City.Name;
+                    TelcoSur.Cities[gridCities.CurrentRow.Index].Latitude = frm.City.Latitude;
+                    TelcoSur.Cities[gridCities.CurrentRow.Index].Longitude = frm.City.Longitude;
+                    TelcoSur.Cities[gridCities.CurrentRow.Index].Demand.Internet = frm.City.Demand.Internet;
+                    TelcoSur.Cities[gridCities.CurrentRow.Index].Demand.Phone= frm.City.Demand.Phone;
+                    TelcoSur.Cities[gridCities.CurrentRow.Index].Demand.TV = frm.City.Demand.TV;
+                    LoadConfig();
+                }
+            }
         }
     }
 }

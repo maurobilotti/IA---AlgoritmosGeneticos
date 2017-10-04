@@ -1,12 +1,5 @@
 ﻿using IA_TP.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IA_TP.UI
@@ -22,10 +15,10 @@ namespace IA_TP.UI
         {
             InitializeComponent();
             this.City = city;
-            LoadPreviousConfig();
+            LoadConfig();
         }
 
-        private void LoadPreviousConfig()
+        private void LoadConfig()
         {
             this.txtCityName.Text = this.City.Name;
             this.numLatitude.Value = this.City.Latitude;
@@ -35,7 +28,7 @@ namespace IA_TP.UI
             this.numTVDemand.Value = this.City.Demand.TV;
         }
 
-        public City City { get; set; }
+        public City City { get; set; }        
 
         private void NewCity_Load(object sender, EventArgs e)
         {

@@ -279,6 +279,7 @@
             this.btnEditCity.TabIndex = 9;
             this.btnEditCity.Text = "Edit";
             this.btnEditCity.UseVisualStyleBackColor = false;
+            this.btnEditCity.Click += new System.EventHandler(this.btnEditCity_Click);
             // 
             // panel2
             // 
