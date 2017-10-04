@@ -32,7 +32,7 @@ namespace IA_TP.UI
             using (Font myFont = new Font("Arial", 9))
             {
                 graph.DrawString(city.Name, myFont, Brushes.Yellow, new Point(city.Latitude - 15, city.Longitude - 15));
-            }
+            }            
         }
 
         public void DrawRoute(Model.City city1, Model.City city2, string route = "")
@@ -47,7 +47,7 @@ namespace IA_TP.UI
                 var latitude = (city1.Latitude + city2.Latitude) / 2;
                 var longitude = (city1.Longitude + city2.Longitude) / 2;
                 graph.DrawString(route, myFont, Brushes.Yellow, new Point(latitude + 10, longitude + 10));
-            }
+            }            
         }        
     }
 }

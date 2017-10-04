@@ -16,11 +16,10 @@ namespace IA_TP.UI
         private DrawingHelper drawingHelper;
         private TelcoSur telcoSur;
         private ToolTip toolTipCity = new ToolTip();
-        bool cityIsShown = false;
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void CreateUIConfig()
@@ -56,7 +55,7 @@ namespace IA_TP.UI
             if (city != null)
             {
                 string demandDescription = $"TV: {city.Demand.TV}, Internet: {city.Demand.Internet}, Phone: {city.Demand.Phone}";
-                toolTipCity.Show(demandDescription, pictureBoxConfig, e.Location);                
+                toolTipCity.Show(demandDescription, pictureBoxConfig, e.Location);
             }
             else
             {
@@ -74,10 +73,18 @@ namespace IA_TP.UI
             }
         }
 
-        //private void pictureBoxConfig_MouseLeave(object sender, EventArgs e)
-        //{
-        //    toolTipCity.Hide(this);
-        //    cityIsShown = false;
-        //}
+        private void btnRedraw_Click(object sender, EventArgs e)
+        {
+            CreateUIConfig();
+        }
+
+        private void btnRun_Click(object sender, EventArgs e)
+        {
+            var frm = new GeneticAlgorithmConfig();
+            if(frm.DialogResult == DialogResult.OK)
+            {
+
+            }
+        }
     }
 }
