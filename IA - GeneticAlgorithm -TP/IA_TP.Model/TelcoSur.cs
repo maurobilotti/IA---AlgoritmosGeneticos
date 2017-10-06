@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using GAF;
+using System.Collections.Generic;
 
 namespace IA_TP.Model
 {
@@ -8,5 +9,7 @@ namespace IA_TP.Model
         public int FiberChannelKmsAvailable { get; set; }
         public double FiberChannelKmCost { get; set; }        
         public Catalogue Catalogue { get; set; }
+        public Chromosome Solution { get; set; }
+        public int FiberChannelKmsInUse { get; set; }
     }
 }

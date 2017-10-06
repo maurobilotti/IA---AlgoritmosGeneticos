@@ -26,7 +26,6 @@ namespace IA_TP.UI
         /// <param name="longitud"></param>
         public void DrawCity(Model.City city)
         {
-            
             graph.DrawEllipse(pen, city.Latitude, city.Longitude, 20, 20);
             graph.FillEllipse(Brushes.Red, new Rectangle(new Point(city.Latitude, city.Longitude), new Size(20, 20)));
             using (Font myFont = new Font("Arial", 9))

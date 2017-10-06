@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using IA_TP.Model;
 using System.Linq;
+using System.Collections.Generic;
+using GAF;
 
 namespace IA_TP.UI
 {
@@ -23,24 +25,51 @@ namespace IA_TP.UI
         }
 
         private void CreateUIConfig()
-        {
+        {            
             foreach (var city in telcoSur.Cities)
             {
                 drawingHelper.DrawCity(city);
             }
 
             if (telcoSur != null)
+            {
                 btnRun.Enabled = true;
-            //drawingHelper.DrawRoute(telcoSur.Cities[0], telcoSur.Cities[3], "1");
-            //drawingHelper.DrawRoute(telcoSur.Cities[3], telcoSur.Cities[1], "2");
-            //drawingHelper.DrawRoute(telcoSur.Cities[1], telcoSur.Cities[2], "3");            
-            //drawingHelper.DrawRoute(telcoSur.Cities[2], telcoSur.Cities[4], "4");
-            //drawingHelper.DrawRoute(telcoSur.Cities[4], telcoSur.Cities[5], "5");
+                btnRedraw.Enabled = true;
+            }
+        }
+
+        private void ShowSolution(TelcoSur telcoSur)
+        {
+            var selection = telcoSur.Solution.Genes.GroupBy(p => ((City)p.ObjectValue).Name)
+                .Select(g => g.First())
+                .ToList();
+            
+            var earnings = telcoSur.Solution.Genes.Sum(z => ((City)z.ObjectValue).CalculateAssessment(telcoSur));
+
+            if(selection.ToList().Count == 2)
+                drawingHelper.DrawRoute((City)selection[0].ObjectValue, (City)selection[1].ObjectValue, "1");
+
+            if(selection.ToList().Count > 2)
+            {
+                for (int i = 0; i < selection.Count; i++)
+                {
+                    var j = i + 1;
+
+                    if (j == selection.Count)
+                    {
+                        drawingHelper.DrawRoute((City)selection[i].ObjectValue, (City)selection[0].ObjectValue, j.ToString());
+                        break;
+                    }
+
+                    drawingHelper.DrawRoute((City)selection[i].ObjectValue, (City)selection[j].ObjectValue, j.ToString());
+                }
+            }
+
+            lblSolution.Text = $"Fitness: {telcoSur.Solution.Fitness}, Fiber Channel Km's: {telcoSur.FiberChannelKmsInUse} kms, Earnings: $ {earnings.ToString("#.##")}";
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
         {
-
             this.drawingHelper = new DrawingHelper(this.pictureBoxConfig);
             this.telcoSur = Config.GetBaseConfig();
             CreateUIConfig();
@@ -85,13 +114,19 @@ namespace IA_TP.UI
         {
             CreateUIConfig();
 
-            var frm = new GeneticAlgorithmConfig();
+            var frm = new GeneticAlgorithmConfig(this.telcoSur.Cities.Count);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 var ga = new GeneticAlgorithm(telcoSur, frm.Parameters);
                 ga.Logger = new Logger(this.lstLogs);
                 ga.Run();
+                ShowSolution(ga.TelcoSur);
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            this.lstLogs.Items.Clear();
         }
     }
 }

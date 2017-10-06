@@ -36,22 +36,25 @@
             this.numFiberChannelLength = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.numPhonePrice = new System.Windows.Forms.NumericUpDown();
-            this.numInternetPrice = new System.Windows.Forms.NumericUpDown();
             this.numTVPrice = new System.Windows.Forms.NumericUpDown();
+            this.numInternetPrice = new System.Windows.Forms.NumericUpDown();
+            this.numPhonePrice = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnRemoveCity = new System.Windows.Forms.Button();
             this.btnEditCity = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.gridCities)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFiberChannelLength)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numPhonePrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numInternetPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTVPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numInternetPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPhonePrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNewCity
@@ -112,7 +115,7 @@
             // 
             this.numFiberChannelLength.Location = new System.Drawing.Point(117, 14);
             this.numFiberChannelLength.Maximum = new decimal(new int[] {
-            500,
+            10000,
             0,
             0,
             0});
@@ -154,61 +157,24 @@
             this.panel1.Size = new System.Drawing.Size(665, 77);
             this.panel1.TabIndex = 7;
             // 
-            // label3
+            // numTVPrice
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 15);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Catalogue";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(41, 36);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Phone ($) :";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(233, 36);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Internet ($) :";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(449, 36);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "TV ($) :";
-            // 
-            // numPhonePrice
-            // 
-            this.numPhonePrice.Location = new System.Drawing.Point(100, 34);
-            this.numPhonePrice.Maximum = new decimal(new int[] {
+            this.numTVPrice.Location = new System.Drawing.Point(497, 34);
+            this.numTVPrice.Maximum = new decimal(new int[] {
             500,
             0,
             0,
             0});
-            this.numPhonePrice.Minimum = new decimal(new int[] {
+            this.numTVPrice.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numPhonePrice.Name = "numPhonePrice";
-            this.numPhonePrice.Size = new System.Drawing.Size(70, 20);
-            this.numPhonePrice.TabIndex = 8;
-            this.numPhonePrice.ThousandsSeparator = true;
-            this.numPhonePrice.Value = new decimal(new int[] {
+            this.numTVPrice.Name = "numTVPrice";
+            this.numTVPrice.Size = new System.Drawing.Size(70, 20);
+            this.numTVPrice.TabIndex = 10;
+            this.numTVPrice.ThousandsSeparator = true;
+            this.numTVPrice.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -237,28 +203,65 @@
             0,
             0});
             // 
-            // numTVPrice
+            // numPhonePrice
             // 
-            this.numTVPrice.Location = new System.Drawing.Point(497, 34);
-            this.numTVPrice.Maximum = new decimal(new int[] {
+            this.numPhonePrice.Location = new System.Drawing.Point(100, 34);
+            this.numPhonePrice.Maximum = new decimal(new int[] {
             500,
             0,
             0,
             0});
-            this.numTVPrice.Minimum = new decimal(new int[] {
+            this.numPhonePrice.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numTVPrice.Name = "numTVPrice";
-            this.numTVPrice.Size = new System.Drawing.Size(70, 20);
-            this.numTVPrice.TabIndex = 10;
-            this.numTVPrice.ThousandsSeparator = true;
-            this.numTVPrice.Value = new decimal(new int[] {
+            this.numPhonePrice.Name = "numPhonePrice";
+            this.numPhonePrice.Size = new System.Drawing.Size(70, 20);
+            this.numPhonePrice.TabIndex = 8;
+            this.numPhonePrice.ThousandsSeparator = true;
+            this.numPhonePrice.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(449, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "TV ($) :";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(233, 36);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Internet ($) :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(41, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Phone ($) :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(4, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 15);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Catalogue";
             // 
             // btnRemoveCity
             // 
@@ -289,12 +292,45 @@
             this.panel2.Size = new System.Drawing.Size(665, 326);
             this.panel2.TabIndex = 10;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(251, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(132, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Fiber Channel Cost ($/KM)";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(389, 14);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.TabIndex = 11;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            // 
             // CustomConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(700, 496);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.btnEditCity);
             this.Controls.Add(this.btnRemoveCity);
             this.Controls.Add(this.panel1);
@@ -315,9 +351,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numFiberChannelLength)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numPhonePrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numInternetPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTVPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numInternetPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPhonePrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,5 +380,7 @@
         private System.Windows.Forms.Button btnRemoveCity;
         private System.Windows.Forms.Button btnEditCity;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

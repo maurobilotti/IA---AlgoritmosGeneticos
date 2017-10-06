@@ -7,7 +7,7 @@
         public double MutationProbability { get; set; }
         public int GenerationExpected { get; set; }
         public int Population { get; private set; }
-        public int ChromosomeMaxLength { get; private set; }
+        public int ChrmosomeMaxLength { get; private set; }
 
         public GeneticAlgorithmParameters(int elitism, double crossOver, double mutation, int generationExpected, int population, int chromosomeMaxLength)
         {            
@@ -16,7 +16,7 @@
             this.MutationProbability = mutation;
             this.GenerationExpected = generationExpected;
             this.Population = population;
-            this.ChromosomeMaxLength = chromosomeMaxLength;
+            this.ChrmosomeMaxLength = chromosomeMaxLength;
         }
     }
 }

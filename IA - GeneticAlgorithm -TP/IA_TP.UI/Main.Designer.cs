@@ -35,6 +35,8 @@
             this.btnRedraw = new System.Windows.Forms.Button();
             this.pictureBoxConfig = new System.Windows.Forms.PictureBox();
             this.lstLogs = new System.Windows.Forms.ListBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.lblSolution = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConfig)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,6 +87,7 @@
             // btnRedraw
             // 
             this.btnRedraw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnRedraw.Enabled = false;
             this.btnRedraw.Location = new System.Drawing.Point(967, 12);
             this.btnRedraw.Name = "btnRedraw";
             this.btnRedraw.Size = new System.Drawing.Size(97, 23);
@@ -103,7 +106,7 @@
             this.pictureBoxConfig.Image = global::IA_TP.UI.Properties.Resources.Terrain3;
             this.pictureBoxConfig.Location = new System.Drawing.Point(13, 42);
             this.pictureBoxConfig.Name = "pictureBoxConfig";
-            this.pictureBoxConfig.Size = new System.Drawing.Size(1051, 400);
+            this.pictureBoxConfig.Size = new System.Drawing.Size(1051, 417);
             this.pictureBoxConfig.TabIndex = 3;
             this.pictureBoxConfig.TabStop = false;
             this.pictureBoxConfig.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxConfig_MouseClick);
@@ -117,12 +120,34 @@
             this.lstLogs.Size = new System.Drawing.Size(1052, 173);
             this.lstLogs.TabIndex = 7;
             // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnClear.Location = new System.Drawing.Point(967, 628);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(97, 23);
+            this.btnClear.TabIndex = 8;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // lblSolution
+            // 
+            this.lblSolution.AutoSize = true;
+            this.lblSolution.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblSolution.Location = new System.Drawing.Point(14, 433);
+            this.lblSolution.Name = "lblSolution";
+            this.lblSolution.Size = new System.Drawing.Size(0, 13);
+            this.lblSolution.TabIndex = 9;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1076, 638);
+            this.ClientSize = new System.Drawing.Size(1076, 655);
+            this.Controls.Add(this.lblSolution);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lstLogs);
             this.Controls.Add(this.btnRedraw);
             this.Controls.Add(this.label1);
@@ -149,6 +174,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRedraw;
         private System.Windows.Forms.ListBox lstLogs;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label lblSolution;
     }
 }
 

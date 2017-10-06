@@ -17,6 +17,13 @@ namespace IA_TP.UI
             InitializeComponent();
         }
 
+        public GeneticAlgorithmConfig(int CitiesLength)
+        {
+            InitializeComponent();
+            this.numChromosomeMaxLength.Maximum = CitiesLength;
+            this.numChromosomeMaxLength.Value = CitiesLength;
+        }        
+
         public GeneticAlgorithmParameters Parameters { get; private set; }
 
         private void btnRunGA_Click(object sender, EventArgs e)

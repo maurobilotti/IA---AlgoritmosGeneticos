@@ -52,13 +52,15 @@ namespace IA_TP.Model
         public double CalculateAssessment(TelcoSur telcosSur)
         {
             double shortestDistance = this.FindShortestDistance(telcosSur.Cities);
+            telcosSur.FiberChannelKmsInUse += (int)shortestDistance;
+
             double cost = shortestDistance * telcosSur.FiberChannelKmCost;
 
             double tvEarnings = (this.Demand.TV * telcosSur.Catalogue.TV_Price);
             double phoneEarnings = (this.Demand.Phone * telcosSur.Catalogue.Phone_Price);
             double internetEarnings = (this.Demand.Internet * telcosSur.Catalogue.Internet_Price);
 
-            double earnings = tvEarnings + phoneEarnings + internetEarnings;
+            double earnings = tvEarnings + phoneEarnings + internetEarnings;            
 
             return earnings - cost;
         }
