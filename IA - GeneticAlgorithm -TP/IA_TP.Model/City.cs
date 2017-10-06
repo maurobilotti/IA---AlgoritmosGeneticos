@@ -1,4 +1,7 @@
-﻿namespace IA_TP.Model
+﻿using System;
+using System.Collections.Generic;
+
+namespace IA_TP.Model
 {
     public class City
     {
@@ -46,5 +49,35 @@
             return string.Equals(Name, other.Name) && Latitude.Equals(other.Latitude) && Longitude.Equals(other.Longitude);
         }
 
+        public double CalculateAssessment(TelcoSur telcosSur)
+        {
+            double shortestDistance = this.FindShortestDistance(telcosSur.Cities);
+            double cost = shortestDistance * telcosSur.FiberChannelKmCost;
+
+            double tvEarnings = (this.Demand.TV * telcosSur.Catalogue.TV_Price);
+            double phoneEarnings = (this.Demand.Phone * telcosSur.Catalogue.Phone_Price);
+            double internetEarnings = (this.Demand.Internet * telcosSur.Catalogue.Internet_Price);
+
+            double earnings = tvEarnings + phoneEarnings + internetEarnings;
+
+            return earnings - cost;
+        }
+
+        private double FindShortestDistance(List<City> otherCities)
+        {
+            double shortestDistance = 999999;
+            foreach (var city in otherCities)
+            {
+                //if it is the same city, we should continue.
+                if (city.Name == this.Name)
+                    continue;
+                
+                double distance = Math.Sqrt(Math.Pow(this.Latitude - city.Latitude, 2) + Math.Pow(this.Longitude - city.Longitude, 2));
+                if (distance < shortestDistance)
+                    shortestDistance = distance;
+            }
+
+            return shortestDistance;
+        }
     }
 }

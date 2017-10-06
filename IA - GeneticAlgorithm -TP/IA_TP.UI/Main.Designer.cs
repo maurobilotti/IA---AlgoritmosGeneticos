@@ -28,26 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
             this.btnRun = new System.Windows.Forms.Button();
             this.btnDefaultConfig = new System.Windows.Forms.Button();
             this.btnCustomConfig = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBoxConfig = new System.Windows.Forms.PictureBox();
             this.btnRedraw = new System.Windows.Forms.Button();
+            this.pictureBoxConfig = new System.Windows.Forms.PictureBox();
+            this.lstLogs = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConfig)).BeginInit();
             this.SuspendLayout();
-            // 
-            // listView1
-            // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.listView1.Location = new System.Drawing.Point(14, 448);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1050, 170);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // btnRun
             // 
@@ -93,6 +82,17 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "click on each city to see its information";
             // 
+            // btnRedraw
+            // 
+            this.btnRedraw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnRedraw.Location = new System.Drawing.Point(967, 12);
+            this.btnRedraw.Name = "btnRedraw";
+            this.btnRedraw.Size = new System.Drawing.Size(97, 23);
+            this.btnRedraw.TabIndex = 6;
+            this.btnRedraw.Text = "Re-Draw";
+            this.btnRedraw.UseVisualStyleBackColor = false;
+            this.btnRedraw.Click += new System.EventHandler(this.btnRedraw_Click);
+            // 
             // pictureBoxConfig
             // 
             this.pictureBoxConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -108,16 +108,14 @@
             this.pictureBoxConfig.TabStop = false;
             this.pictureBoxConfig.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxConfig_MouseClick);
             // 
-            // btnRedraw
+            // lstLogs
             // 
-            this.btnRedraw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnRedraw.Location = new System.Drawing.Point(967, 12);
-            this.btnRedraw.Name = "btnRedraw";
-            this.btnRedraw.Size = new System.Drawing.Size(97, 23);
-            this.btnRedraw.TabIndex = 6;
-            this.btnRedraw.Text = "Re-Draw";
-            this.btnRedraw.UseVisualStyleBackColor = false;
-            this.btnRedraw.Click += new System.EventHandler(this.btnRedraw_Click);
+            this.lstLogs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lstLogs.FormattingEnabled = true;
+            this.lstLogs.Location = new System.Drawing.Point(12, 449);
+            this.lstLogs.Name = "lstLogs";
+            this.lstLogs.Size = new System.Drawing.Size(1052, 173);
+            this.lstLogs.TabIndex = 7;
             // 
             // Main
             // 
@@ -125,13 +123,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1076, 638);
+            this.Controls.Add(this.lstLogs);
             this.Controls.Add(this.btnRedraw);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCustomConfig);
             this.Controls.Add(this.pictureBoxConfig);
             this.Controls.Add(this.btnDefaultConfig);
             this.Controls.Add(this.btnRun);
-            this.Controls.Add(this.listView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -144,14 +142,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.Button btnDefaultConfig;
         private System.Windows.Forms.PictureBox pictureBoxConfig;
         private System.Windows.Forms.Button btnCustomConfig;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRedraw;
+        private System.Windows.Forms.ListBox lstLogs;
     }
 }
 

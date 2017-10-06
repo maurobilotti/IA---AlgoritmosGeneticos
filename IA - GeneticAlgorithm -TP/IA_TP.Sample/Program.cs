@@ -31,7 +31,8 @@ namespace TravellingSalesman
                 var chromosome = new Chromosome();
                 foreach (var city in cities)
                 {
-                    chromosome.Genes.Add(new Gene(city));
+                    var gene = new Gene(city);
+                    chromosome.Genes.Add(gene);
                 }
 
                 var rnd = GAF.Threading.RandomProvider.GetThreadRandom();
@@ -44,13 +45,13 @@ namespace TravellingSalesman
             var elite = new Elite(5);
 
             //create the crossover operator
-            var crossover = new Crossover(0.8)
+            var crossover = new Crossover(0.9)
             {
                 CrossoverType = CrossoverType.DoublePointOrdered
             };
 
             //create the mutation operator
-            var mutate = new SwapMutate(0.02);
+            var mutate = new SwapMutate(0.2);
 
             //create the GA
             var ga = new GeneticAlgorithm(population, CalculateFitness);

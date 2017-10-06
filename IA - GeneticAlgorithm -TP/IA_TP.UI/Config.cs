@@ -12,7 +12,7 @@ namespace IA_TP.UI
             telcoSur.Cities = BuildBaseCities();
             telcoSur.Catalogue = BuildBaseCatalogue();
             telcoSur.FiberChannelKmsAvailable = 250;
-            telcoSur.Income = 0;
+            telcoSur.FiberChannelKmCost = 1000;            
             return telcoSur;
         }
 

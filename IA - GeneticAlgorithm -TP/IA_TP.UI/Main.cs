@@ -29,6 +29,8 @@ namespace IA_TP.UI
                 drawingHelper.DrawCity(city);
             }
 
+            if (telcoSur != null)
+                btnRun.Enabled = true;
             //drawingHelper.DrawRoute(telcoSur.Cities[0], telcoSur.Cities[3], "1");
             //drawingHelper.DrawRoute(telcoSur.Cities[3], telcoSur.Cities[1], "2");
             //drawingHelper.DrawRoute(telcoSur.Cities[1], telcoSur.Cities[2], "3");            
@@ -38,6 +40,7 @@ namespace IA_TP.UI
 
         private void btnConfig_Click(object sender, EventArgs e)
         {
+
             this.drawingHelper = new DrawingHelper(this.pictureBoxConfig);
             this.telcoSur = Config.GetBaseConfig();
             CreateUIConfig();
@@ -80,10 +83,14 @@ namespace IA_TP.UI
 
         private void btnRun_Click(object sender, EventArgs e)
         {
-            var frm = new GeneticAlgorithmConfig();
-            if(frm.DialogResult == DialogResult.OK)
-            {
+            CreateUIConfig();
 
+            var frm = new GeneticAlgorithmConfig();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                var ga = new GeneticAlgorithm(telcoSur, frm.Parameters);
+                ga.Logger = new Logger(this.lstLogs);
+                ga.Run();
             }
         }
     }

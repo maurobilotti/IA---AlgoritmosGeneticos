@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GAF, Version=2.3.0.22457, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GAF.2.3.0\lib\net45\GAF.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,6 +58,15 @@
       <DependentUpon>CustomConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="DrawingHelper.cs" />
+    <Compile Include="GeneticAlgorithm.cs" />
+    <Compile Include="GeneticAlgorithmConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneticAlgorithmConfig.Designer.cs">
+      <DependentUpon>GeneticAlgorithmConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneticAlgorithmParameters.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +84,9 @@
     <EmbeddedResource Include="CustomConfig.resx">
       <DependentUpon>CustomConfig.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GeneticAlgorithmConfig.resx">
+      <DependentUpon>GeneticAlgorithmConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +103,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
