@@ -9,14 +9,14 @@ namespace IA_TP.UI
     {
         public CustomConfig()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         public CustomConfig(TelcoSur telcoSur) : base()
         {
             InitializeComponent();
             this.TelcoSur = telcoSur;
-            if(TelcoSur != null)
+            if (TelcoSur != null)
             {
                 LoadConfig();
             }
@@ -33,11 +33,13 @@ namespace IA_TP.UI
                                               Phone_Demand = x.Demand.Phone,
                                               Internet_Demand = x.Demand.Internet,
                                               TV_Demand = x.Demand.TV
-                                          }).ToList(); 
-            this.numFiberChannelLength.Value = TelcoSur.FiberChannelKmsAvailable;
+                                          }).ToList();
+            this.numFiberChannelKms.Value = TelcoSur.FiberChannelKmsAvailable;
             this.numInternetPrice.Value = (decimal)TelcoSur.Catalogue.Internet_Price;
             this.numPhonePrice.Value = (decimal)TelcoSur.Catalogue.Phone_Price;
             this.numTVPrice.Value = (decimal)TelcoSur.Catalogue.TV_Price;
+            this.numFiberChannelKms.Value = (int)TelcoSur.FiberChannelKmsAvailable;
+            this.numFiberChannelCost.Value = (int)TelcoSur.FiberChannelKmCost;
         }
 
         public TelcoSur TelcoSur { get; set; }
@@ -49,6 +51,8 @@ namespace IA_TP.UI
 
         private void btnSaveConfig_Click(object sender, EventArgs e)
         {
+            TelcoSur.FiberChannelKmsAvailable = (int)numFiberChannelKms.Value;
+            TelcoSur.FiberChannelKmCost = (int)numFiberChannelCost.Value;
             this.DialogResult = DialogResult.OK;
         }
 
@@ -74,7 +78,7 @@ namespace IA_TP.UI
 
         private void btnEditCity_Click(object sender, EventArgs e)
         {
-            if(gridCities.SelectedRows.Count == 1)
+            if (gridCities.SelectedRows.Count == 1)
             {
                 var item = (dynamic)gridCities.CurrentRow.DataBoundItem;
                 var city = new City()
@@ -89,14 +93,14 @@ namespace IA_TP.UI
                         Phone = item.Phone_Demand
                     }
                 };
-                var frm = new NewCity(city);                
-                if(frm.ShowDialog() == DialogResult.OK)
+                var frm = new NewCity(city);
+                if (frm.ShowDialog() == DialogResult.OK)
                 {
                     TelcoSur.Cities[gridCities.CurrentRow.Index].Name = frm.City.Name;
                     TelcoSur.Cities[gridCities.CurrentRow.Index].Latitude = frm.City.Latitude;
                     TelcoSur.Cities[gridCities.CurrentRow.Index].Longitude = frm.City.Longitude;
                     TelcoSur.Cities[gridCities.CurrentRow.Index].Demand.Internet = frm.City.Demand.Internet;
-                    TelcoSur.Cities[gridCities.CurrentRow.Index].Demand.Phone= frm.City.Demand.Phone;
+                    TelcoSur.Cities[gridCities.CurrentRow.Index].Demand.Phone = frm.City.Demand.Phone;
                     TelcoSur.Cities[gridCities.CurrentRow.Index].Demand.TV = frm.City.Demand.TV;
                     LoadConfig();
                 }

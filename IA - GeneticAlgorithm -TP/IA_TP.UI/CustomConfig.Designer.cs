@@ -33,7 +33,7 @@
             this.btnSaveConfig = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.numFiberChannelLength = new System.Windows.Forms.NumericUpDown();
+            this.numFiberChannelKms = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.numTVPrice = new System.Windows.Forms.NumericUpDown();
@@ -47,14 +47,14 @@
             this.btnEditCity = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numFiberChannelCost = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.gridCities)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFiberChannelLength)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFiberChannelKms)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTVPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numInternetPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPhonePrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFiberChannelCost)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNewCity
@@ -111,23 +111,23 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "WARNING: At least three cities are needed";
             // 
-            // numFiberChannelLength
+            // numFiberChannelKms
             // 
-            this.numFiberChannelLength.Location = new System.Drawing.Point(117, 14);
-            this.numFiberChannelLength.Maximum = new decimal(new int[] {
+            this.numFiberChannelKms.Location = new System.Drawing.Point(117, 14);
+            this.numFiberChannelKms.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.numFiberChannelLength.Minimum = new decimal(new int[] {
+            this.numFiberChannelKms.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numFiberChannelLength.Name = "numFiberChannelLength";
-            this.numFiberChannelLength.Size = new System.Drawing.Size(120, 20);
-            this.numFiberChannelLength.TabIndex = 5;
-            this.numFiberChannelLength.Value = new decimal(new int[] {
+            this.numFiberChannelKms.Name = "numFiberChannelKms";
+            this.numFiberChannelKms.Size = new System.Drawing.Size(120, 20);
+            this.numFiberChannelKms.TabIndex = 5;
+            this.numFiberChannelKms.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -301,23 +301,23 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Fiber Channel Cost ($/KM)";
             // 
-            // numericUpDown1
+            // numFiberChannelCost
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(389, 14);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numFiberChannelCost.Location = new System.Drawing.Point(389, 14);
+            this.numFiberChannelCost.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.numFiberChannelCost.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 11;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numFiberChannelCost.Name = "numFiberChannelCost";
+            this.numFiberChannelCost.Size = new System.Drawing.Size(120, 20);
+            this.numFiberChannelCost.TabIndex = 11;
+            this.numFiberChannelCost.Value = new decimal(new int[] {
             1000,
             0,
             0,
@@ -330,12 +330,12 @@
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(700, 496);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numFiberChannelCost);
             this.Controls.Add(this.btnEditCity);
             this.Controls.Add(this.btnRemoveCity);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.numFiberChannelLength);
+            this.Controls.Add(this.numFiberChannelKms);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveConfig);
@@ -348,13 +348,13 @@
             this.Text = "Custom Config";
             this.Load += new System.EventHandler(this.CustomConfig_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridCities)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFiberChannelLength)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFiberChannelKms)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTVPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numInternetPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPhonePrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFiberChannelCost)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,7 +367,7 @@
         private System.Windows.Forms.Button btnSaveConfig;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numFiberChannelLength;
+        private System.Windows.Forms.NumericUpDown numFiberChannelKms;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
@@ -381,6 +381,6 @@
         private System.Windows.Forms.Button btnEditCity;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numFiberChannelCost;
     }
 }
