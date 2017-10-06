@@ -73,6 +73,7 @@ namespace IA_TP.UI
             this.drawingHelper = new DrawingHelper(this.pictureBoxConfig);
             this.telcoSur = Config.GetBaseConfig();
             CreateUIConfig();
+            btnDefaultConfig.Enabled = false;
         }
 
         private void pictureBoxConfig_MouseClick(object sender, MouseEventArgs e)
