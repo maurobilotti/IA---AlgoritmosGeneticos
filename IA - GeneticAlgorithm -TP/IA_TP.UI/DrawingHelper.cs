@@ -28,7 +28,7 @@ namespace IA_TP.UI
         {
             graph.DrawEllipse(pen, city.Latitude, city.Longitude, 20, 20);
             graph.FillEllipse(Brushes.Red, new Rectangle(new Point(city.Latitude, city.Longitude), new Size(20, 20)));
-            using (Font myFont = new Font("Arial", 9))
+            using (Font myFont = new Font("Arial", 9, FontStyle.Bold))
             {
                 graph.DrawString(city.Name, myFont, Brushes.Yellow, new Point(city.Latitude - 15, city.Longitude - 15));
             }            
@@ -36,17 +36,24 @@ namespace IA_TP.UI
 
         public void DrawRoute(Model.City city1, Model.City city2, string route = "")
         {
-            //graph = pictureBox.CreateGraphics();
             graph.DrawLine(pen, city1.Latitude + 10, city1.Longitude + 10, city2.Latitude + 10, city2.Longitude + 10);
             if (string.IsNullOrWhiteSpace(route))
                 return;
 
-            using (Font myFont = new Font("Arial", 15))
+            using (Font myFont = new Font("Arial", 16, FontStyle.Bold))
             {
-                var latitude = (city1.Latitude + city2.Latitude) / 2;
-                var longitude = (city1.Longitude + city2.Longitude) / 2;
-                graph.DrawString(route, myFont, Brushes.Yellow, new Point(latitude + 10, longitude + 10));
-            }            
+                var x = (city1.Latitude + city2.Latitude) / 2;
+                var y = (city1.Longitude + city2.Longitude) / 2;
+                graph.DrawString(route, myFont, Brushes.Yellow, new Point(x + 10, y + 10));                
+            }
+
+            using (Font myFont = new Font("Arial", 8, FontStyle.Italic))
+            {
+                var distance = city1.GetDistanceTo(city2);
+                var x = (city1.Latitude + city2.Latitude) / 2;
+                var y = (city1.Longitude + city2.Longitude) / 2;
+                graph.DrawString(distance.ToString("#.#") + "kms", myFont, Brushes.Yellow, new Point(x + 25, y + 25));
+            }
         }        
     }
 }

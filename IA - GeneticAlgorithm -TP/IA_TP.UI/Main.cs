@@ -25,7 +25,7 @@ namespace IA_TP.UI
         }
 
         private void CreateUIConfig()
-        {            
+        {
             foreach (var city in telcoSur.Cities)
             {
                 drawingHelper.DrawCity(city);
@@ -43,13 +43,27 @@ namespace IA_TP.UI
             var selection = telcoSur.Solution.Genes.GroupBy(p => ((City)p.ObjectValue).Name)
                 .Select(g => g.First())
                 .ToList();
-            
-            var earnings = telcoSur.Solution.Genes.Sum(z => ((City)z.ObjectValue).CalculateAssessment(telcoSur));
 
-            if(selection.ToList().Count == 2)
+            var earnings = selection.Sum(z => ((City)z.ObjectValue).CalculateEarnings(telcoSur));
+            var distance = 0.0;
+
+            for (int i = 0; i < selection.Count; i++)
+            {
+                var j = i + 1;
+
+                if (j == selection.Count)
+                    j = 0;
+
+                var city = (City)selection[i].ObjectValue;
+                var otherCity = (City)selection[j].ObjectValue;
+
+                distance += city.GetDistanceTo(otherCity);
+            }
+
+            if (selection.ToList().Count == 2)
                 drawingHelper.DrawRoute((City)selection[0].ObjectValue, (City)selection[1].ObjectValue, "1");
 
-            if(selection.ToList().Count > 2)
+            if (selection.ToList().Count > 2)
             {
                 for (int i = 0; i < selection.Count; i++)
                 {
@@ -65,7 +79,7 @@ namespace IA_TP.UI
                 }
             }
 
-            lblSolution.Text = $"Fitness: {telcoSur.Solution.Fitness}, Fiber Channel Km's: {telcoSur.FiberChannelKmsInUse} kms, Earnings: $ {earnings.ToString("#.##")}";
+            lblSolution.Text = $"Fitness: {telcoSur.Solution.Fitness.ToString("0.######")}, Fiber Channel Km's: {distance.ToString("#.##")} kms, Earnings: $ {earnings.ToString("#.##")}";
         }
 
         private void btnConfig_Click(object sender, EventArgs e)

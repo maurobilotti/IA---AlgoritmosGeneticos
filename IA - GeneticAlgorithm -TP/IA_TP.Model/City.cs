@@ -22,9 +22,11 @@ namespace IA_TP.Model
 
         public UserDemand Demand { get; set; }
 
-        public int GetDistanceTo(City otherCity)
+        public double GetDistanceTo(City otherCity)
         {
-            return 0;
+            double distance = Math.Sqrt(Math.Pow(this.Latitude - otherCity.Latitude, 2) + Math.Pow(this.Longitude - otherCity.Longitude, 2));
+            
+            return distance;
         }
 
         public override int GetHashCode()
@@ -49,21 +51,21 @@ namespace IA_TP.Model
             return string.Equals(Name, other.Name) && Latitude.Equals(other.Latitude) && Longitude.Equals(other.Longitude);
         }
 
-        public double CalculateAssessment(TelcoSur telcosSur)
-        {
-            double shortestDistance = this.FindShortestDistance(telcosSur.Cities);
-            telcosSur.FiberChannelKmsInUse += (int)shortestDistance;
+        //public double CalculateAssessment(TelcoSur telcosSur, List<City> cities)
+        //{
+        //    double shortestDistance = this.FindShortestDistance(cities);
+        //    telcosSur.FiberChannelKmsInUse += shortestDistance;
 
-            double cost = shortestDistance * telcosSur.FiberChannelKmCost;
+        //    double cost = shortestDistance * telcosSur.FiberChannelKmCost;
 
-            double tvEarnings = (this.Demand.TV * telcosSur.Catalogue.TV_Price);
-            double phoneEarnings = (this.Demand.Phone * telcosSur.Catalogue.Phone_Price);
-            double internetEarnings = (this.Demand.Internet * telcosSur.Catalogue.Internet_Price);
+        //    double tvEarnings = (this.Demand.TV * telcosSur.Catalogue.TV_Price);
+        //    double phoneEarnings = (this.Demand.Phone * telcosSur.Catalogue.Phone_Price);
+        //    double internetEarnings = (this.Demand.Internet * telcosSur.Catalogue.Internet_Price);
 
-            double earnings = tvEarnings + phoneEarnings + internetEarnings;            
+        //    double earnings = tvEarnings + phoneEarnings + internetEarnings;            
 
-            return earnings - cost;
-        }
+        //    return earnings - cost;
+        //}
 
         private double FindShortestDistance(List<City> otherCities)
         {
@@ -74,12 +76,21 @@ namespace IA_TP.Model
                 if (city.Name == this.Name)
                     continue;
                 
-                double distance = Math.Sqrt(Math.Pow(this.Latitude - city.Latitude, 2) + Math.Pow(this.Longitude - city.Longitude, 2));
+                double distance = this.GetDistanceTo(city);
                 if (distance < shortestDistance)
                     shortestDistance = distance;
             }
 
             return shortestDistance;
+        }
+
+        public double CalculateEarnings(TelcoSur telcoSur)
+        {
+            double tvEarnings = (this.Demand.TV * telcoSur.Catalogue.TV_Price);
+            double phoneEarnings = (this.Demand.Phone * telcoSur.Catalogue.Phone_Price);
+            double internetEarnings = (this.Demand.Internet * telcoSur.Catalogue.Internet_Price);
+
+            return tvEarnings + phoneEarnings + internetEarnings;
         }
     }
 }

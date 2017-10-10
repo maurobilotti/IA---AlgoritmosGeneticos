@@ -34,7 +34,7 @@ namespace IA_TP.UI
                                               Internet_Demand = x.Demand.Internet,
                                               TV_Demand = x.Demand.TV
                                           }).ToList();
-            this.numFiberChannelKms.Value = TelcoSur.FiberChannelKmsAvailable;
+            this.numFiberChannelKms.Value = (decimal)TelcoSur.FiberChannelKmsAvailable;
             this.numInternetPrice.Value = (decimal)TelcoSur.Catalogue.Internet_Price;
             this.numPhonePrice.Value = (decimal)TelcoSur.Catalogue.Phone_Price;
             this.numTVPrice.Value = (decimal)TelcoSur.Catalogue.TV_Price;

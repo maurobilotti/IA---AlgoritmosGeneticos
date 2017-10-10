@@ -25,7 +25,7 @@ namespace IA_TP.UI
             this.mutationProbability = parameters.MutationProbability;
             this.generationExpected = parameters.GenerationExpected;
             this.Population = parameters.Population;
-            this.ChromosomeMaxLength = parameters.ChrmosomeMaxLength;            
+            this.ChromosomeMaxLength = parameters.ChrmosomeMaxLength;
         }
 
         public void Run()
@@ -33,7 +33,7 @@ namespace IA_TP.UI
             Logger.Log("Running genetic algorithm...");
             Logger.Log($"Population size (amount of choromosomes): {Population}");
             var population = new Population();
-            
+
             //create the chromosomes
             for (int i = 0; i <= Population; i++)
             {
@@ -49,8 +49,8 @@ namespace IA_TP.UI
 
                     if (chromosome.Genes.Any(z => ((City)z.ObjectValue).Name == city.Name))
                         continue;
-                    
-                    var gene = new Gene(city);                    
+
+                    var gene = new Gene(city);
                     chromosome.Genes.Add(gene);
                     chromosome.Genes.ShuffleFast(rnd);
                     chromosomeLength++;
@@ -99,7 +99,7 @@ namespace IA_TP.UI
 
         private void ga_OnGenerationComplete(object sender, GaEventArgs e)
         {
-            var fittest = e.Population.GetTop(1)[0];            
+            var fittest = e.Population.GetTop(1)[0];
         }
 
         private bool Terminate(Population population, int currentGeneration, long currentEvaluation)
@@ -109,6 +109,7 @@ namespace IA_TP.UI
 
         private void ga_OnRunComplete(object sender, GaEventArgs e)
         {
+            Logger.Log("====================================================================================================================");
             var fittest = e.Population.GetTop(1)[0];
             var result = fittest.Genes.GroupBy(p => ((City)p.ObjectValue).Name)
                 .Select(g => g.First())
@@ -116,7 +117,7 @@ namespace IA_TP.UI
             Logger.Log($"Chromosome selected with fitness: {fittest.Fitness}");
             foreach (var gene in result)
             {
-                Logger.Log($"########> {((City)gene.ObjectValue).Name}");                
+                Logger.Log($"########> {((City)gene.ObjectValue).Name}");
             }
 
             this.TelcoSur.Solution = fittest;
@@ -125,30 +126,49 @@ namespace IA_TP.UI
         //return result must be between 0.0 and 1.0
         private double CalculateAssessment(Chromosome chromosome)
         {
-            var chromosomeAssessment = 0.0;
-            City previousCity = null;
-            TelcoSur.FiberChannelKmsInUse = 0;
+            var genes = chromosome.Genes.GroupBy(p => ((City)p.ObjectValue).Name)
+               .Select(g => g.First())
+               .ToList();
 
-            foreach (var gene in chromosome.Genes)
+            Logger.Log("Chromosome with: ");
+
+            var distance = 0.0;
+            var earnings = 0.0;
+
+            for (int i = 0; i < genes.Count; i++)
             {
-                var city = (City)gene.ObjectValue;
-                Logger.Log("Chromosome with: ");
+                var j = i + 1;
 
-                chromosomeAssessment += city.CalculateAssessment(TelcoSur);
+                if (j == genes.Count)
+                    j = 0;
 
+                var city = (City)genes[i].ObjectValue;
                 Logger.Log($"------> City Name: {city.Name}, " +
-                      $"Location: ({city.Latitude}, {city.Longitude}), " +
-                      $"Demand: (TV: {city.Demand.TV}, Internet: {city.Demand.Internet}, Phone: {city.Demand.Phone})");
+                  $"Location: ({city.Latitude}, {city.Longitude}), " +
+                  $"Demand: (TV: {city.Demand.TV}, Internet: {city.Demand.Internet}, Phone: {city.Demand.Phone})");
+
+                var otherCity = (City)genes[j].ObjectValue;
+
+                distance += city.GetDistanceTo(otherCity);
+
+                earnings += city.CalculateEarnings(TelcoSur);
             }
 
-            //if the kms used for the chromosome is bigger than the km's available. Then this chromosome should have a penalty       
-            if (TelcoSur.FiberChannelKmsAvailable < TelcoSur.FiberChannelKmsInUse)
-                chromosomeAssessment -= 1000000;
 
-            var assessment = 1 - (100000 / (chromosomeAssessment < 100000 ? 100000 : chromosomeAssessment));
-            Logger.Log($"$$$$$$> Chromosome earnings: $ {chromosomeAssessment.ToString("#.##")}");
-            Logger.Log($"//////> Chromosome kms in use: $ {TelcoSur.FiberChannelKmsInUse} kms");
+            Logger.Log($">>>>>>>> Chromosome distance is {distance.ToString("#.##")} kms");
+
+            var balance = earnings - (distance * this.TelcoSur.FiberChannelKmCost);
+
+            //if the kms used for the chromosome is bigger than the km's available. Then this chromosome should have a penalty       
+            if (TelcoSur.FiberChannelKmsAvailable < distance)
+                balance = balance * 0.2;
+
+            var assessment = 1 - (100000 / (balance < 100000 ? 100000 : balance));
+            Logger.Log($"$$$$$$> Chromosome earnings: $ {balance.ToString("#.##")}");
+            Logger.Log($"//////> Chromosome kms in use: $ {distance} kms");
             Logger.Log($"======> Chromosome assessment: {assessment}");
+
+            Logger.Log("--------------------------------------------------------------------------------------------------------------");
 
             return assessment;
         }

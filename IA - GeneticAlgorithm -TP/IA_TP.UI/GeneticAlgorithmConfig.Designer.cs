@@ -215,7 +215,7 @@
             0,
             0});
             this.numChromosomeMaxLength.Minimum = new decimal(new int[] {
-            2,
+            3,
             0,
             0,
             0});
