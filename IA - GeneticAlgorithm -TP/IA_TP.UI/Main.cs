@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using IA_TP.Model;
 using System.Linq;
-using System.Collections.Generic;
-using GAF;
 
 namespace IA_TP.UI
 {

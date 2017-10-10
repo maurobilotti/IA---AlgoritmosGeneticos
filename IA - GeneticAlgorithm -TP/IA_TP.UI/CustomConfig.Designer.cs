@@ -48,6 +48,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.numFiberChannelCost = new System.Windows.Forms.NumericUpDown();
+            this.numPenalty = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridCities)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFiberChannelKms)).BeginInit();
             this.panel1.SuspendLayout();
@@ -55,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numInternetPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPhonePrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFiberChannelCost)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPenalty)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNewCity
@@ -125,7 +128,7 @@
             0,
             0});
             this.numFiberChannelKms.Name = "numFiberChannelKms";
-            this.numFiberChannelKms.Size = new System.Drawing.Size(120, 20);
+            this.numFiberChannelKms.Size = new System.Drawing.Size(70, 20);
             this.numFiberChannelKms.TabIndex = 5;
             this.numFiberChannelKms.Value = new decimal(new int[] {
             1,
@@ -182,7 +185,7 @@
             // 
             // numInternetPrice
             // 
-            this.numInternetPrice.Location = new System.Drawing.Point(297, 34);
+            this.numInternetPrice.Location = new System.Drawing.Point(309, 34);
             this.numInternetPrice.Maximum = new decimal(new int[] {
             500,
             0,
@@ -295,7 +298,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(251, 16);
+            this.label7.Location = new System.Drawing.Point(196, 16);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(132, 13);
             this.label7.TabIndex = 12;
@@ -303,7 +306,7 @@
             // 
             // numFiberChannelCost
             // 
-            this.numFiberChannelCost.Location = new System.Drawing.Point(389, 14);
+            this.numFiberChannelCost.Location = new System.Drawing.Point(334, 14);
             this.numFiberChannelCost.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -315,7 +318,7 @@
             0,
             0});
             this.numFiberChannelCost.Name = "numFiberChannelCost";
-            this.numFiberChannelCost.Size = new System.Drawing.Size(120, 20);
+            this.numFiberChannelCost.Size = new System.Drawing.Size(62, 20);
             this.numFiberChannelCost.TabIndex = 11;
             this.numFiberChannelCost.Value = new decimal(new int[] {
             1000,
@@ -323,12 +326,45 @@
             0,
             0});
             // 
+            // numPenalty
+            // 
+            this.numPenalty.Location = new System.Drawing.Point(514, 14);
+            this.numPenalty.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.numPenalty.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numPenalty.Name = "numPenalty";
+            this.numPenalty.Size = new System.Drawing.Size(70, 20);
+            this.numPenalty.TabIndex = 13;
+            this.numPenalty.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(449, 18);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Penalty (%)";
+            // 
             // CustomConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(700, 496);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.numPenalty);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.numFiberChannelCost);
             this.Controls.Add(this.btnEditCity);
@@ -355,6 +391,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numInternetPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPhonePrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFiberChannelCost)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPenalty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,5 +419,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown numFiberChannelCost;
+        private System.Windows.Forms.NumericUpDown numPenalty;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -12,7 +12,8 @@ namespace IA_TP.UI
             telcoSur.Cities = BuildBaseCities();
             telcoSur.Catalogue = BuildBaseCatalogue();
             telcoSur.FiberChannelKmsAvailable = 600;
-            telcoSur.FiberChannelKmCost = 1000;            
+            telcoSur.FiberChannelKmCost = 1000;        
+            telcoSur.PenaltyPercent = 50;    
             return telcoSur;
         }
 
@@ -57,31 +58,31 @@ namespace IA_TP.UI
                     Latitude = 800, Longitude = 120, Name = "Localidad E",
                     Demand = new UserDemand {Internet = 5000, Phone= 5000, TV = 500 },
                 },
-                //new Model.City
-                //{
-                //    Latitude = 300, Longitude = 180, Name = "Localidad F",
-                //    Demand = new UserDemand {Internet = 5000, Phone= 600, TV = 100 }
-                //},
-                //new Model.City
-                //{
-                //    Latitude = 800, Longitude = 250, Name = "Localidad G",
-                //    Demand = new UserDemand {Internet = 2400, Phone= 4000, TV = 1500 }
-                //},
-                //new Model.City
-                //{
-                //    Latitude = 940, Longitude = 190, Name = "Localidad H",
-                //    Demand = new UserDemand {Internet = 5000, Phone= 5000, TV = 500 },
-                //},
-                //new Model.City
-                //{
-                //    Latitude = 200, Longitude = 80, Name = "Localidad I",
-                //    Demand = new UserDemand {Internet = 5000, Phone= 600, TV = 100 }
-                //},
-                //new Model.City
-                //{
-                //    Latitude = 900, Longitude = 250, Name = "Localidad J",
-                //    Demand = new UserDemand {Internet = 5000, Phone= 600, TV = 100 }
-                //},
+                new Model.City
+                {
+                    Latitude = 300, Longitude = 180, Name = "Localidad F",
+                    Demand = new UserDemand {Internet = 5000, Phone= 600, TV = 100 }
+                },
+                new Model.City
+                {
+                    Latitude = 800, Longitude = 250, Name = "Localidad G",
+                    Demand = new UserDemand {Internet = 2400, Phone= 4000, TV = 1500 }
+                },
+                new Model.City
+                {
+                    Latitude = 940, Longitude = 190, Name = "Localidad H",
+                    Demand = new UserDemand {Internet = 5000, Phone= 5000, TV = 500 },
+                },
+                new Model.City
+                {
+                    Latitude = 200, Longitude = 80, Name = "Localidad I",
+                    Demand = new UserDemand {Internet = 5000, Phone= 600, TV = 100 }
+                },
+                new Model.City
+                {
+                    Latitude = 100, Longitude = 50, Name = "Localidad J",
+                    Demand = new UserDemand {Internet = 5000, Phone= 600, TV = 100 }
+                },
                 //new Model.City
                 //{
                 //    Latitude = 700, Longitude = 250, Name = "Localidad K",

@@ -40,6 +40,7 @@ namespace IA_TP.UI
             this.numTVPrice.Value = (decimal)TelcoSur.Catalogue.TV_Price;
             this.numFiberChannelKms.Value = (int)TelcoSur.FiberChannelKmsAvailable;
             this.numFiberChannelCost.Value = (int)TelcoSur.FiberChannelKmCost;
+            this.numPenalty.Value = TelcoSur.PenaltyPercent;
         }
 
         public TelcoSur TelcoSur { get; set; }
@@ -53,6 +54,7 @@ namespace IA_TP.UI
         {
             TelcoSur.FiberChannelKmsAvailable = (int)numFiberChannelKms.Value;
             TelcoSur.FiberChannelKmCost = (int)numFiberChannelCost.Value;
+            TelcoSur.PenaltyPercent = (int)numPenalty.Value;
             this.DialogResult = DialogResult.OK;
         }
 

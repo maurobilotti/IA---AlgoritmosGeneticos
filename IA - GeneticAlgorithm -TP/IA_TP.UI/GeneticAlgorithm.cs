@@ -161,7 +161,7 @@ namespace IA_TP.UI
 
             //if the kms used for the chromosome is bigger than the km's available. Then this chromosome should have a penalty       
             if (TelcoSur.FiberChannelKmsAvailable < distance)
-                balance = balance * 0.2;
+                balance = balance * TelcoSur.PenaltyPercent * 0.01;
 
             var assessment = 1 - (100000 / (balance < 100000 ? 100000 : balance));
             Logger.Log($"$$$$$$> Chromosome earnings: $ {balance.ToString("#.##")}");
