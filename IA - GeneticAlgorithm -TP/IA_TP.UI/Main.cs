@@ -41,6 +41,9 @@ namespace IA_TP.UI
                 .Select(g => g.First())
                 .ToList();
 
+            var centralNode = (City)selection.First().ObjectValue;
+            drawingHelper.DrawCentralNodel(centralNode);
+
             var earnings = selection.Sum(z => ((City)z.ObjectValue).CalculateEarnings(telcoSur));
             var distance = 0.0;
 

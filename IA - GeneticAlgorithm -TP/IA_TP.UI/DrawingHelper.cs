@@ -54,6 +54,16 @@ namespace IA_TP.UI
                 var y = (city1.Longitude + city2.Longitude) / 2;
                 graph.DrawString(distance.ToString("#.#") + "kms", myFont, Brushes.Yellow, new Point(x + 25, y + 25));
             }
-        }        
+        }      
+        
+        public void DrawCentralNodel(Model.City centralNode)
+        {
+            graph.DrawEllipse(pen, centralNode.Latitude, centralNode.Longitude, 20, 20);
+            graph.FillEllipse(Brushes.GreenYellow, new Rectangle(new Point(centralNode.Latitude, centralNode.Longitude), new Size(20, 20)));
+            using (Font myFont = new Font("Arial", 10, FontStyle.Bold))
+            {
+                graph.DrawString("Central Node", myFont, Brushes.Orange, new Point(centralNode.Latitude + 15, centralNode.Longitude + 15));
+            }
+        }  
     }
 }
