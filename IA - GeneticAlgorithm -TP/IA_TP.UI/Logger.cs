@@ -11,8 +11,10 @@ namespace IA_TP.UI
             this.listBox = listBox;
         }
 
-        public void Log(string text)
+        public void Log(string text, bool lineBreak = false)
         {
+            if (lineBreak)
+                listBox.Items.Add("");
             listBox.Items.Add(text);
         }
     }

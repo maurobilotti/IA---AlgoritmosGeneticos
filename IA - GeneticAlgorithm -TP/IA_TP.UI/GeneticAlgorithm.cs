@@ -30,8 +30,14 @@ namespace IA_TP.UI
 
         public void Run()
         {
-            Logger.Log("Running genetic algorithm...");
-            Logger.Log($"Population size (amount of choromosomes): {Population}");
+            Logger.Log("$ Running genetic algorithm...");
+            Logger.Log($" Population size (amount of choromosomes): {Population}");
+            Logger.Log($" Crossover probability: {this.crossoverProbability}");
+            Logger.Log($" Mutation probability: {this.mutationProbability}");
+            Logger.Log($" Generation expected: {this.generationExpected}");
+            Logger.Log($" Elitism percentage: {this.elitismPercentage}");
+            Logger.Log($" Chromosome length (amount of cities involved in the solution): {this.ChromosomeMaxLength}");
+            Logger.Log($" ..........................................................................................................................", true);
             var population = new Population();
 
             //create the chromosomes
@@ -109,12 +115,15 @@ namespace IA_TP.UI
 
         private void ga_OnRunComplete(object sender, GaEventArgs e)
         {
-            Logger.Log("====================================================================================================================");
+            Logger.Log("====================================================================================================================", true);
             var fittest = e.Population.GetTop(1)[0];
             var result = fittest.Genes.GroupBy(p => ((City)p.ObjectValue).Name)
                 .Select(g => g.First())
                 .ToList();
-            Logger.Log($"Chromosome selected with fitness: {fittest.Fitness}");
+
+            Logger.Log($"We have a chromosome that solves the problem!!", true);
+            Logger.Log($"The following combination of cities is the best one:", true);
+
             foreach (var gene in result)
             {
                 Logger.Log($"########> {((City)gene.ObjectValue).Name}");
@@ -164,11 +173,11 @@ namespace IA_TP.UI
                 balance = balance * TelcoSur.PenaltyPercent * 0.01;
 
             var assessment = 1 - (100000 / (balance < 100000 ? 100000 : balance));
-            Logger.Log($"$$$$$$> Chromosome earnings: $ {balance.ToString("#.##")}");
-            Logger.Log($"//////> Chromosome kms in use: $ {distance} kms");
-            Logger.Log($"======> Chromosome assessment: {assessment}");
+            Logger.Log($">>>>>>>> Chromosome earnings: $ {balance.ToString("#.##")}");
+            Logger.Log($">>>>>>>> Chromosome kms in use: $ {distance} kms");
+            Logger.Log($"=======> Chromosome assessment: {assessment}");
 
-            Logger.Log("--------------------------------------------------------------------------------------------------------------");
+            Logger.Log("--------------------------------------------------------------------------------------------------------------", true);
 
             return assessment;
         }

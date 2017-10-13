@@ -15,10 +15,11 @@ namespace IA_TP.UI
         private DrawingHelper drawingHelper;
         private TelcoSur telcoSur;
         private ToolTip toolTipCity = new ToolTip();
+        public Logger Logger { get; internal set; }
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            this.Logger = new Logger(this.lstLogs);
         }
 
         private void CreateUIConfig()
@@ -78,8 +79,10 @@ namespace IA_TP.UI
                     drawingHelper.DrawRoute((City)selection[i].ObjectValue, (City)selection[j].ObjectValue, j.ToString());
                 }
             }
-
-            lblSolution.Text = $"Fitness: {telcoSur.Solution.Fitness.ToString("0.######")}, Fiber Channel Km's: {distance.ToString("#.##")} kms, Earnings: $ {earnings.ToString("#.##")}";
+            var log = $"Fitness: {telcoSur.Solution.Fitness.ToString("0.######")}, Fiber Channel Km's: {distance.ToString("#.##")} kms, Earnings: $ {earnings.ToString("#.##")}";
+            lblSolution.Text = log;
+            Logger.Log(log, true);
+            Logger.Log("...end.", true);
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
